@@ -2689,7 +2689,6 @@ body {
     }
 
     .subscriptions-stats,
-    .subscriptions-table-head,
     .subscription-row,
     .subscription-service-fields,
     .subscription-choice-row,
@@ -3445,6 +3444,112 @@ body {
    ============================================ */
 
 @media (max-width: 480px) {
+    .subscriptions-table-head {
+        display: none;
+    }
+
+    .subscriptions-table-card {
+        padding: var(--spacing-md);
+        background: transparent;
+        border: none;
+        box-shadow: none;
+    }
+
+    .subscriptions-table-body {
+        display: grid;
+        gap: var(--spacing-md);
+    }
+
+    .subscription-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+            "customer customer"
+            "service service"
+            "date date"
+            "status payment"
+            "actions actions";
+        gap: 12px;
+        padding: 18px;
+        border: 1px solid rgba(226, 232, 240, 0.95);
+        border-radius: 24px;
+        background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.07);
+    }
+
+    .subscription-customer-cell {
+        grid-area: customer;
+        align-items: center;
+    }
+
+    .subscription-customer-name {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .subscription-avatar {
+        width: 56px;
+        height: 56px;
+        font-size: 20px;
+        flex-shrink: 0;
+    }
+
+    .subscription-service-cell {
+        grid-area: service;
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(79, 70, 229, 0.06);
+        line-height: 1.7;
+    }
+
+    .subscription-date-cell {
+        grid-area: date;
+        padding: 0 2px;
+        font-size: 14px;
+    }
+
+    .subscription-row > div:nth-child(4) {
+        grid-area: status;
+    }
+
+    .subscription-payment-cell {
+        grid-area: payment;
+    }
+
+    .subscription-row > div:nth-child(4),
+    .subscription-payment-cell {
+        min-height: 78px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 14px;
+        border-radius: 18px;
+        background-color: #fff;
+        border: 1px solid var(--border-light);
+    }
+
+    .subscription-status-badge,
+    .subscription-payment-badge {
+        width: fit-content;
+    }
+
+    .subscription-payment-cell small {
+        display: block;
+        line-height: 1.6;
+    }
+
+    .subscription-actions-cell {
+        grid-area: actions;
+        justify-content: flex-start;
+        padding-top: 4px;
+    }
+
+    .subscription-action-btn {
+        min-width: 92px;
+        padding: 10px 14px;
+        border-radius: 14px;
+    }
+
     .modal-content {
         width: 95%;
         max-width: none;
