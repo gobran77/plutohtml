@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubsFlow - لوحة التحكم</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SubsFlow">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-container">
+                <div class="logo-icon">📊</div>
+                <span class="logo-text">SubsFlow</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-page="dashboard">
+                <span class="nav-icon">📊</span>
+                <span class="nav-label">لوحة التحكم</span>
+            </a>
+            <a href="#" class="nav-item" data-page="orders">
+                <span class="nav-icon">📦</span>
+                <span class="nav-label">الطلبات</span>
+            </a>
+            <a href="#" class="nav-item" data-page="services">
+                <span class="nav-icon">🛠️</span>
+                <span class="nav-label">الخدمات</span>
+            </a>
+            <a href="#" class="nav-item" data-page="customers">
+                <span class="nav-icon">👥</span>
+                <span class="nav-label">العملاء</span>
+            </a>
+            <a href="#" class="nav-item" data-page="subscriptions">
+                <span class="nav-icon">📋</span>
+                <span class="nav-label">الاشتراكات</span>
+            </a>
+            <a href="#" class="nav-item" data-page="invoices">
+                <span class="nav-icon">📄</span>
+                <span class="nav-label">الفواتير</span>
+            </a>
+            <a href="#" class="nav-item" data-page="payments">
+                <span class="nav-icon">💳</span>
+                <span class="nav-label">المدفوعات</span>
+            </a>
+            <a href="#" class="nav-item" data-page="expenses">
+                <span class="nav-icon">💰</span>
+                <span class="nav-label">المصروفات</span>
+            </a>
+            <a href="#" class="nav-item" data-page="support">
+                <span class="nav-icon">🎧</span>
+                <span class="nav-label">تذاكر الدعم</span>
+            </a>
+            <a href="#" class="nav-item" data-page="messages">
+                <span class="nav-icon">💬</span>
+                <span class="nav-label">الرسائل</span>
+            </a>
+            <a href="#" class="nav-item" data-page="reports">
+                <span class="nav-icon">📈</span>
+                <span class="nav-label">التقارير</span>
+            </a>
+            <a href="#" class="nav-item" data-page="settings">
+                <span class="nav-icon">⚙️</span>
+                <span class="nav-label">الإعدادات</span>
+            </a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="top-bar-left">
+                <button class="menu-btn" id="menuBtn" type="button" aria-label="فتح القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <h1 class="page-title">لوحة التحكم</h1>
+            </div>
+            <div class="top-bar-right">
+                <button class="icon-btn" type="button" title="البحث">🔍</button>
+                <button class="icon-btn" type="button" title="الإشعارات" id="topNotificationsBtn">🔔</button>
+                <button class="icon-btn" type="button" title="الملف الشخصي">👤</button>
+            </div>
+        </header>
+
+        <div class="page-content">
+            <section id="dashboard" class="page active">
+                <div class="page-header">
+                    <div>
+                        <h2 class="page-heading">لوحة التحكم</h2>
+                        <p class="page-subtitle">نظرة عامة على بياناتك الحالية بعد التصفير</p>
+                    </div>
+                </div>
+
+                <div class="filter-tabs" id="dashboardCurrencyTabs">
+                    <button class="filter-tab active" type="button">الكل</button>
+                    <button class="filter-tab" type="button">ر.س</button>
+                    <button class="filter-tab" type="button">د.إ</button>
+                    <button class="filter-tab" type="button">$</button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon-box">💰</div>
+                        <div class="stat-content">
+                            <p class="stat-label">إجمالي الإيرادات</p>
+                            <p class="stat-value" data-stat="revenue">0 ر.س</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card accent-green">
+                        <div class="stat-icon-box">📈</div>
+                        <div class="stat-content">
+                            <p class="stat-label">صافي الربح</p>
+                            <p class="stat-value" data-stat="profit">0 ر.س</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card accent-blue">
+                        <div class="stat-icon-box">✅</div>
+                        <div class="stat-content">
+                            <p class="stat-label">الاشتراكات النشطة</p>
+                            <p class="stat-value" data-stat="subscriptions">0</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card accent-yellow">
+                        <div class="stat-icon-box">⏳</div>
+                        <div class="stat-content">
+                            <p class="stat-label">قريبة من الانتهاء</p>
+                            <p class="stat-value" data-stat="expiring">0</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon-box">👥</div>
+                        <div class="stat-content">
+                            <p class="stat-label">العملاء</p>
+                            <p class="stat-value" data-stat="customers">0</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card accent-blue">
+                        <div class="stat-icon-box">🛠️</div>
+                        <div class="stat-content">
+                            <p class="stat-label">إجمالي الخدمات</p>
+                            <p class="stat-value" data-stat="services">0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="financial-summary">
+                    <div class="summary-header">
+                        <h3>الملخص المالي</h3>
+                        <span class="currency-badge" data-summary="currency">ر.س</span>
+                    </div>
+
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <span class="summary-label">الرصيد الفعلي</span>
+                            <div class="summary-value-box">
+                                <span class="summary-value" data-summary="balance">0</span>
+                                <span class="summary-unit" data-summary="currency-unit">ر.س</span>
+                            </div>
+                        </div>
+
+                        <div class="summary-item">
+                            <span class="summary-label">الإيرادات</span>
+                            <span class="summary-value positive" data-summary="income">+0 ر.س</span>
+                        </div>
+
+                        <div class="summary-item">
+                            <span class="summary-label">المصروفات</span>
+                            <span class="summary-value negative" data-summary="expenses">0 ر.س</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-detail-grid">
+                    <section class="dashboard-detail-card alert-card">
+                        <div class="dashboard-detail-header">
+                            <div>
+                                <h3>تنبيه: دفعات متأخرة السداد</h3>
+                                <p>الاشتراكات التي تحتاج متابعة مالية</p>
+                            </div>
+                        </div>
+                        <div class="dashboard-detail-list" id="dashboardOverdueList">
+                            <div class="empty-search">لا توجد دفعات متأخرة حاليًا.</div>
+                        </div>
+                    </section>
+
+                    <section class="dashboard-detail-card upcoming-card">
+                        <div class="dashboard-detail-header">
+                            <div>
+                                <h3>التجديدات القادمة</h3>
+                                <p>الاشتراكات التي ستنتهي قريبًا</p>
+                            </div>
+                            <span class="dashboard-badge" id="dashboardRenewalsCount">0 تجديدات</span>
+                        </div>
+                        <div class="dashboard-detail-list" id="dashboardRenewalsList">
+                            <div class="empty-search">لا توجد تجديدات قريبة حاليًا.</div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <section id="orders" class="page">
+                <div class="page-header">
+                    <h2 class="page-heading">الطلبات</h2>
+                    <p class="page-subtitle">إدارة جميع الطلبات والعمليات</p>
+                </div>
+                <div class="placeholder">محتوى صفحة الطلبات</div>
+            </section>
+
+            <section id="services" class="page">
+                <div class="page-header">
+                    <h2 class="page-heading">الخدمات</h2>
+                    <p class="page-subtitle">إدارة الخدمات المقدمة</p>
+                </div>
+                <div class="services-page">
+                    <div id="servicesOverview">
+                        <div class="services-toolbar">
+                            <div>
+                                <h3 class="section-title">إدارة الخدمات</h3>
+                                <p class="section-subtitle" id="servicesCountLabel">0 خدمة</p>
+                            </div>
+                            <div class="services-toolbar-actions">
+                                <button class="icon-btn subtle" type="button" title="التنبيهات">🔔</button>
+                                <button class="btn-primary" type="button" id="openServiceModalBtn">إضافة خدمة</button>
+                            </div>
+                        </div>
+
+                        <div class="service-tabs">
+                            <button class="service-tab active" type="button" data-service-type="private">خاص</button>
+                            <button class="service-tab" type="button" data-service-type="shared">مشترك</button>
+                        </div>
+
+                        <div class="services-list-head">
+                            <span>الخدمة</span>
+                            <span>النوع</span>
+                            <span>الحسابات</span>
+                            <span>المدة</span>
+                            <span>السعر</span>
+                            <span>الإجراءات</span>
+                        </div>
+
+                        <div class="services-list" id="servicesList">
+                            <div class="empty-state" id="servicesEmptyState">
+                                <div class="empty-state-icon">🛠️</div>
+                                <h3>لا توجد خدمات بعد</h3>
+                                <p>ابدأ بإضافة أول خدمة في القسم الحالي.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-detail-page" id="serviceDetailPage" style="display: none;">
+                        <div class="service-detail-toolbar">
+                            <button class="btn-secondary" type="button" id="backToServicesBtn">رجوع</button>
+                            <div>
+                                <h3 class="section-title" id="serviceDetailName">الخدمة</h3>
+                                <p class="section-subtitle" id="serviceDetailMeta">إدارة الإيميلات المضافة</p>
+                            </div>
+                            <button class="btn-primary" type="button" id="toggleServiceEntryFormBtn">إضافة إيميل</button>
+                        </div>
+
+                        <div class="service-entry-form" id="serviceEntryForm" style="display: none;">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="serviceEntryEmail">الإيميل</label>
+                                    <input type="email" id="serviceEntryEmail" placeholder="name@example.com">
+                                </div>
+                                <div class="form-group" id="serviceEntryPasswordGroup">
+                                    <label for="serviceEntryPassword">الباسورد</label>
+                                    <input type="text" id="serviceEntryPassword" placeholder="أدخل الباسورد">
+                                </div>
+                            </div>
+                            <button class="btn-primary" type="button" id="saveServiceEntryBtn">حفظ</button>
+                        </div>
+
+                        <div class="customers-search">
+                            <input type="search" id="serviceEntrySearchInput" placeholder="ابحث بالإيميل">
+                        </div>
+
+                        <div class="service-detail-list" id="serviceEntriesList"></div>
+                        <div class="service-linked-customers" id="serviceLinkedCustomers" style="display: none;">
+                            <h4 class="section-title" id="serviceLinkedCustomersTitle">العملاء المرتبطون</h4>
+                            <div class="service-members-list" id="serviceLinkedCustomersList"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="customers" class="page">
+                <div class="page-header">
+                    <h2 class="page-heading">العملاء</h2>
+                    <p class="page-subtitle">قائمة العملاء والمعلومات</p>
+                </div>
+                <div class="customers-page">
+                    <div class="customers-toolbar">
+                        <div>
+                            <h3 class="section-title">قائمة العملاء</h3>
+                            <p class="section-subtitle">اعرض الاسم فقط، وابحث بالاسم أو رقم العميل أو رقم الجوال</p>
+                        </div>
+                        <button class="btn-primary" type="button" id="openCustomerModalBtn">إضافة عميل</button>
+                    </div>
+
+                    <div class="customers-search">
+                        <input type="search" id="customerSearchInput" placeholder="ابحث بالاسم أو رقم العميل أو الرقم">
+                    </div>
+
+                    <div class="customers-list" id="customersList">
+                        <div class="empty-state" id="customersEmptyState">
+                            <div class="empty-state-icon">👥</div>
+                            <h3>لا يوجد عملاء بعد</h3>
+                            <p>ابدأ بإضافة أول عميل من الزر الموجود أعلى الصفحة.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="subscriptions" class="page">
+                <div class="page-header">
+                    <h2 class="page-heading">الاشتراكات</h2>
+                    <p class="page-subtitle">إدارة الاشتراكات النشطة</p>
+                </div>
+                <div class="subscriptions-page">
+                    <div class="subscriptions-toolbar">
+                        <button class="btn-primary" type="button" id="openSubscriptionModalBtn">إضافة اشتراك</button>
+                        <button class="icon-btn subtle" type="button" title="التنبيهات">🔔</button>
+                    </div>
+
+                    <div class="subscriptions-stats">
+                        <article class="subscription-stat-card">
+                            <span class="subscription-stat-label">نشط</span>
+                            <strong class="subscription-stat-value success" id="subscriptionsActiveCount">0</strong>
+                        </article>
+                        <article class="subscription-stat-card">
+                            <span class="subscription-stat-label">قريب من الانتهاء</span>
+                            <strong class="subscription-stat-value warning" id="subscriptionsEndingCount">0</strong>
+                        </article>
+                        <article class="subscription-stat-card">
+                            <span class="subscription-stat-label">منتهي</span>
+                            <strong class="subscription-stat-value danger" id="subscriptionsExpiredCount">0</strong>
+                        </article>
+                        <article class="subscription-stat-card">
+                            <span class="subscription-stat-label">أجل / جزئي</span>
+                            <strong class="subscription-stat-value warning" id="subscriptionsPartialCount">0</strong>
+                        </article>
+                        <article class="subscription-stat-card">
+                            <span class="subscription-stat-label">إجمالي المديونية</span>
+                            <strong class="subscription-stat-value danger" id="subscriptionsDebtValue">0 ر.ي</strong>
+                        </article>
+                    </div>
+
+                    <div class="subscriptions-actions">
+                        <div class="subscription-filter-tabs">
+                            <button class="subscription-filter-tab active" type="button" data-subscription-filter="all">الكل</button>
+                            <button class="subscription-filter-tab" type="button" data-subscription-filter="active">نشط</button>
+                            <button class="subscription-filter-tab" type="button" data-subscription-filter="ending">قريب من الانتهاء</button>
+                            <button class="subscription-filter-tab" type="button" data-subscription-filter="expired">منتهي</button>
+                        </div>
+                        <div class="subscriptions-actions-right">
+                            <button class="btn-secondary" type="button" id="exportSubscriptionsBtn">تصدير CSV</button>
+                        </div>
+                    </div>
+
+                    <div class="subscriptions-table-card">
+                        <div class="subscriptions-table-head">
+                            <span>العميل</span>
+                            <span>الخدمات</span>
+                            <span>فترة الاشتراك</span>
+                            <span>الحالة</span>
+                            <span>الدفع</span>
+                            <span>الإجراءات</span>
+                        </div>
+                        <div class="subscriptions-table-body" id="subscriptionsTableBody">
+                            <div class="empty-state" id="subscriptionsEmptyState">
+                                <div class="empty-state-icon">📋</div>
+                                <h3>لا توجد اشتراكات بعد</h3>
+                                <p>ابدأ بإضافة أول اشتراك من الزر الموجود أعلى الصفحة.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="invoices" class="page">
+                <div class="page-header">
+                    <h2 class="page-heading">الفواتير</h2>
+                    <p class="page-subtitle">عرض وإدارة الفواتير</p>
+                </div>
+                <div class="invoices-page">
+                    <div class="invoices-sidebar-card">
+                        <div class="payments-toolbar">
+                            <h3 class="payments-card-title">فواتير الاشتراكات</h3>
+                            <input type="search" id="invoicesSearchInput" placeholder="ابحث باسم العميل أو رقمه">
+                        </div>
+                        <div class="invoices-list" id="invoicesList"></div>
+                    </div>
+
+                    <div class="invoice-preview-card" id="invoicePreviewCard">
+                        <div class="invoice-preview-empty" id="invoicePreviewEmpty">اختر اشتراكًا لعرض الفاتورة.</div>
+                        <div class="invoice-preview-content" id="invoicePreviewContent" style="display: none;">
+                            <div class="invoice-preview-header">
+                                <div>
+                                    <div class="invoice-brand">SubsFlow</div>
+                                    <h3 id="invoiceTitle">فاتورة اشتراك</h3>
+                                    <p class="invoice-meta" id="invoiceMeta">-</p>
+                                </div>
+                                <div class="invoice-preview-actions">
+                                    <button class="btn-danger" type="button" id="invoiceDeleteBtn">حذف الفاتورة</button>
+                                    <button class="btn-secondary" type="button" id="invoiceCopyBtn">نسخ الفاتورة</button>
+                                    <button class="btn-primary" type="button" id="invoicePrintBtn">طباعة</button>
+                                </div>
+                            </div>
+
+                            <div class="invoice-summary-grid">
+                                <div class="payments-debt-box">
+                                    <span>العميل</span>
+                                    <strong id="invoiceCustomerName">-</strong>
+                                </div>
+                                <div class="payments-debt-box">
+                                    <span>الإجمالي</span>
+                                    <strong id="invoiceTotalAmount">-</strong>
+                                </div>
+                                <div class="payments-debt-box">
+                                    <span>المدفوع</span>
+                                    <strong id="invoicePaidAmount">-</strong>
+                                </div>
+                                <div class="payments-debt-box">
+                                    <span>المتبقي</span>
+                                    <strong id="invoiceRemainingAmount">-</strong>
+                                </div>
+                            </div>
+
+                            <div class="invoice-section">
+                                <h4>الخدمات</h4>
+                                <div class="invoice-services-list" id="invoiceServicesList"></div>
+                            </div>
+
+                            <div class="invoice-section">
+                                <h4>تفاصيل الاشتراك</h4>
+                                <div class="invoice-details-grid" id="invoiceDetailsGrid"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="payments" class="page">
+                <div class="page-header">
+                    <h2 class="page-heading">المدفوعات</h2>
+                    <p class="page-subtitle">سجل المدفوعات والتحويلات</p>
+                </div>
+                <div class="payments-page">
+                    <div class="payments-topbar">
+                        <div class="payments-currency-tabs" id="paymentsCurrencyTabs"></div>
+                        <button class="btn-primary payments-open-btn" type="button" id="openPaymentEntryBtn">تسجيل دفعة +</button>
+                    </div>
+
+                    <div class="payments-stats">
+                        <div class="payment-stat-card">
+                            <span class="payment-stat-label">إجمالي المديونية</span>
+                            <strong id="paymentsTotalDebt">0</strong>
+                            <small class="payment-stat-note" id="paymentsDebtorsCount">0 عميل</small>
+                        </div>
+                        <div class="payment-stat-card">
+                            <span class="payment-stat-label">إجمالي المدفوعات</span>
+                            <strong id="paymentsCollectedTotal">0</strong>
+                            <small class="payment-stat-note" id="paymentsTransactionsCount">0 عملية دفع</small>
+                        </div>
+                        <div class="payment-stat-card">
+                            <span class="payment-stat-label">الإجمالي الكلي</span>
+                            <strong id="paymentsGrandTotal">0</strong>
+                            <small class="payment-stat-note" id="paymentsCurrencySummary">-</small>
+                        </div>
+                    </div>
+
+                    <div class="payments-card">
+                        <div class="payments-toolbar">
+                            <h3 class="payments-card-title">العملاء عليهم مدفوعات آجلة</h3>
+                        </div>
+                        <div class="payments-customers-list payments-overdue-grid" id="paymentsCustomersList"></div>
+                    </div>
+
+                    <div class="payments-card">
+                        <h3 class="payments-card-title">تقرير المدفوعات حسب العملة</h3>
+                        <div class="payments-currency-report" id="paymentsCurrencyReport"></div>
+                    </div>
+
+                    <div class="payments-card">
+                        <h3 class="payments-card-title">توزيع طرق الدفع</h3>
+                        <div class="payments-methods-grid" id="paymentsMethodsGrid"></div>
+                    </div>
+
+                    <div class="payments-card">
+                        <div class="payments-table-toolbar">
+                            <div class="payments-filter-tabs" id="paymentsFilterTabs"></div>
+                            <div class="payments-table-actions">
+                                <button class="btn-secondary" type="button" id="paymentsExportBtn">تصدير</button>
+                            </div>
+                        </div>
+                        <div class="payments-history-table">
+                            <div class="payments-history-head payments-history-table-head">
+                                <span>الدفعة</span>
+                                <span>العميل</span>
+                                <span>الفاتورة</span>
+                                <span>المبلغ</span>
+                                <span>المرجع</span>
+                            </div>
+                            <div class="payments-history-list" id="paymentsHistoryList"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="expenses" class="page">
+                <div class="page-header">
+                    <h2 class="page-heading">المصروفات</h2>
+                    <p class="page-subtitle">تتبع المصروفات والنفقات</p>
+                </div>
+                <div class="placeholder">محتوى صفحة المصروفات</div>
+            </section>
+
+            <section id="support" class="page">
+                <div class="page-header">
+                    <h2 class="page-heading">تذاكر الدعم</h2>
+                    <p class="page-subtitle">إدارة طلبات الدعم الفني</p>
+                </div>
+                <div class="placeholder">محتوى صفحة تذاكر الدعم</div>
+            </section>
+
+            <section id="messages" class="page">
+                <div class="page-header">
+                    <h2 class="page-heading">الرسائل</h2>
+                    <p class="page-subtitle">الرسائل والتنبيهات</p>
+                </div>
+                <div class="placeholder">محتوى صفحة الرسائل</div>
+            </section>
+
+            <section id="reports" class="page">
+                <div class="page-header">
+                    <h2 class="page-heading">التقارير</h2>
+                    <p class="page-subtitle">التقارير والإحصائيات التفصيلية</p>
+                </div>
+                <div class="reports-page">
+                    <div class="reports-toolbar">
+                        <div class="payments-currency-tabs" id="reportsRangeTabs">
+                            <button class="payments-currency-tab active" type="button" data-report-range="today">اليوم</button>
+                            <button class="payments-currency-tab" type="button" data-report-range="week">الأسبوع</button>
+                            <button class="payments-currency-tab" type="button" data-report-range="month">الشهر</button>
+                            <button class="payments-currency-tab" type="button" data-report-range="year">السنة</button>
+                            <button class="payments-currency-tab" type="button" data-report-range="all">كل الفترات</button>
+                            <button class="payments-currency-tab" type="button" data-report-range="custom">من - إلى</button>
+                        </div>
+                        <div class="reports-custom-range" id="reportsCustomRange">
+                            <div class="form-group">
+                                <label for="reportsDateFrom">من</label>
+                                <input type="date" id="reportsDateFrom">
+                            </div>
+                            <div class="form-group">
+                                <label for="reportsDateTo">إلى</label>
+                                <input type="date" id="reportsDateTo">
+                            </div>
+                            <button class="btn-primary" type="button" id="reportsApplyBtn">تطبيق</button>
+                        </div>
+                    </div>
+                    <div class="reports-period-note" id="reportsPeriodNote"></div>
+                    <div class="reports-stats-grid">
+                        <article class="payment-stat-card"><span>الإيرادات</span><strong id="reportsRevenue">0 ر.س</strong><small>إجمالي الاشتراكات</small></article>
+                        <article class="payment-stat-card"><span>التكلفة</span><strong id="reportsCosts">0 ر.س</strong><small>تكلفة الخدمات</small></article>
+                        <article class="payment-stat-card"><span>صافي الربح</span><strong id="reportsProfit">0 ر.س</strong><small>الربح خلال الفترة</small></article>
+                        <article class="payment-stat-card"><span>المدفوعات</span><strong id="reportsCollected">0 ر.س</strong><small>الدفعات المحصلة</small></article>
+                        <article class="payment-stat-card"><span>الاشتراكات</span><strong id="reportsSubscriptionsCount">0</strong><small>اشتراكات جديدة</small></article>
+                        <article class="payment-stat-card"><span>الخدمات</span><strong id="reportsServicesCount">0</strong><small>خدمات مستخدمة</small></article>
+                        <article class="payment-stat-card"><span>العملاء</span><strong id="reportsCustomersCount">0</strong><small>عملاء جدد</small></article>
+                        <article class="payment-stat-card"><span>المديونية</span><strong id="reportsDebtAdded">0 ر.س</strong><small>ديون مضافة</small></article>
+                    </div>
+                    <div class="reports-grid">
+                        <section class="payments-card">
+                            <h3 class="payments-card-title">ملخص شامل</h3>
+                            <div class="reports-summary-list" id="reportsSummaryList"></div>
+                        </section>
+                        <section class="payments-card">
+                            <h3 class="payments-card-title">طرق الدفع</h3>
+                            <div class="reports-compact-list" id="reportsMethodsList"></div>
+                        </section>
+                        <section class="payments-card">
+                            <h3 class="payments-card-title">الخدمات الأكثر طلبًا</h3>
+                            <div class="reports-compact-list" id="reportsServicesList"></div>
+                        </section>
+                        <section class="payments-card reports-grid-span">
+                            <h3 class="payments-card-title">آخر الحركات</h3>
+                            <div class="reports-activity-list" id="reportsActivityList"></div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+
+            <section id="settings" class="page">
+                <div class="page-header">
+                    <h2 class="page-heading">الإعدادات</h2>
+                    <p class="page-subtitle">إعدادات النظام والحساب</p>
+                </div>
+                <div class="settings-page">
+                    <div class="settings-card">
+                        <div class="settings-card-header">
+                            <div>
+                                <h3>العملة الافتراضية</h3>
+                                <p>اختر العملة الأساسية التي ستظهر في لوحة التحكم والنماذج الجديدة.</p>
+                            </div>
+                        </div>
+                        <div class="settings-form-grid">
+                            <div class="form-group">
+                                <label for="settingsDefaultCurrency">العملة الحالية</label>
+                                <select id="settingsDefaultCurrency"></select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <div class="settings-card-header">
+                            <div>
+                                <h3>إضافة عملة جديدة</h3>
+                                <p>أضف رمز العملة واسمها ومعامل التحويل ليظهر الخيار في كل النماذج.</p>
+                            </div>
+                        </div>
+                        <div class="settings-form-grid settings-form-grid-3">
+                            <div class="form-group">
+                                <label for="settingsCurrencySymbol">رمز العملة</label>
+                                <input type="text" id="settingsCurrencySymbol" placeholder="مثال: ج.م أو €">
+                            </div>
+                            <div class="form-group">
+                                <label for="settingsCurrencyName">اسم العملة</label>
+                                <input type="text" id="settingsCurrencyName" placeholder="مثال: جنيه مصري">
+                            </div>
+                            <div class="form-group">
+                                <label for="settingsCurrencyRate">معامل التحويل</label>
+                                <input type="number" id="settingsCurrencyRate" min="0.0001" step="0.0001" value="1">
+                            </div>
+                        </div>
+                        <div class="settings-actions">
+                            <button class="btn-primary" type="button" id="settingsAddCurrencyBtn">إضافة العملة</button>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <div class="settings-card-header">
+                            <div>
+                                <h3>العملات المتاحة</h3>
+                                <p>هذه العملات ستظهر داخل الاشتراكات والخدمات وتبديل عملة اللوحة.</p>
+                            </div>
+                        </div>
+                        <div class="settings-currency-list" id="settingsCurrenciesList"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="toast-container" id="toastContainer"></div>
+
+    <div class="modal" id="addModal">
+        <div class="modal-overlay" data-close-modal="addModal"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>إضافة عنصر جديد</h3>
+                <button class="modal-close" type="button" data-close-modal="addModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="itemName">اسم العنصر</label>
+                    <input type="text" placeholder="أدخل اسم العنصر" id="itemName">
+                </div>
+                <div class="form-group">
+                    <label for="itemDescription">الوصف</label>
+                    <textarea placeholder="أدخل وصف العنصر" id="itemDescription" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="itemPrice">السعر</label>
+                    <input type="number" placeholder="أدخل السعر" id="itemPrice" min="0" step="0.01">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" type="button" data-close-modal="addModal">إلغاء</button>
+                <button class="btn-primary" type="button" id="submitAddBtn">إضافة</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="deleteModal">
+        <div class="modal-overlay" data-close-modal="deleteModal"></div>
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h3>تأكيد الحذف</h3>
+                <button class="modal-close" type="button" data-close-modal="deleteModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>سيتم حذف آخر عنصر تمت إضافته من العدادات. هل تريد المتابعة؟</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" type="button" data-close-modal="deleteModal">إلغاء</button>
+                <button class="btn-danger" type="button" id="confirmDeleteBtn">حذف</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="notificationsModal">
+        <div class="modal-overlay" data-close-modal="notificationsModal"></div>
+        <div class="modal-content modal-notifications">
+            <div class="modal-header">
+                <h3>التنبيهات</h3>
+                <button class="modal-close" type="button" data-close-modal="notificationsModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="notifications-list" id="notificationsList">
+                    <div class="notification-item success">
+                        <span class="notification-icon">✅</span>
+                        <div class="notification-content">
+                            <p class="notification-title">الواجهة جاهزة</p>
+                            <p class="notification-text">تم تصفير العدادات وتجهيز الواجهة للعمل من نقطة بداية نظيفة.</p>
+                            <span class="notification-time">الآن</span>
+                        </div>
+                    </div>
+                    <div class="notification-item info">
+                        <span class="notification-icon">ℹ️</span>
+                        <div class="notification-content">
+                            <p class="notification-title">استخدام الأزرار</p>
+                            <p class="notification-text">زر الإضافة يضيف عنصرًا جديدًا، وزر الحذف يزيل آخر عنصر تمت إضافته.</p>
+                            <span class="notification-time">الآن</span>
+                        </div>
+                    </div>
+                    <div class="notification-item info">
+                        <span class="notification-icon">📌</span>
+                        <div class="notification-content">
+                            <p class="notification-title">تحديث البيانات</p>
+                            <p class="notification-text">زر التحديث يعيد عرض القيم الحالية ويثبت حالة الصفحة بعد أي تغيير.</p>
+                            <span class="notification-time">الآن</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="customerModal">
+        <div class="modal-overlay" data-close-modal="customerModal"></div>
+        <div class="modal-content modal-customer">
+            <div class="modal-header">
+                <h3 id="customerModalTitle">إضافة عميل</h3>
+                <button class="modal-close" type="button" data-close-modal="customerModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="customerFirstName">الاسم الأول</label>
+                        <input type="text" id="customerFirstName" placeholder="مثال: محمد">
+                    </div>
+                    <div class="form-group">
+                        <label for="customerLastName">الاسم الأخير</label>
+                        <input type="text" id="customerLastName" placeholder="مثال: أحمد">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="customerCountryCode">رمز الدولة</label>
+                    <input type="text" id="customerCountryCode" placeholder="+966">
+                </div>
+
+                <div class="form-group">
+                    <label for="customerPhoneNumber">رقم الجوال</label>
+                    <input type="tel" id="customerPhoneNumber" placeholder="5xxxxxxxx">
+                </div>
+
+                <div class="form-group">
+                    <label for="customerFullPhone">أو الرقم كاملًا</label>
+                    <input type="tel" id="customerFullPhone" placeholder="+9665xxxxxxxx">
+                    <small class="field-hint">يمكنك تعبئة رمز الدولة والرقم في الحقلين السابقين، أو كتابة الرقم كاملًا هنا.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="customerEmail">البريد الإلكتروني (اختياري)</label>
+                    <input type="email" id="customerEmail" placeholder="name@example.com">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" type="button" data-close-modal="customerModal">إلغاء</button>
+                <button class="btn-primary" type="button" id="submitCustomerBtn">حفظ العميل</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="serviceModal">
+        <div class="modal-overlay" data-close-modal="serviceModal"></div>
+        <div class="modal-content modal-service">
+            <div class="modal-header">
+                <h3 id="serviceModalTitle">إضافة خدمة جديدة</h3>
+                <button class="modal-close" type="button" data-close-modal="serviceModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="serviceName">اسم الخدمة</label>
+                    <input type="text" id="serviceName" placeholder="مثال: ChatGPT">
+                </div>
+
+                <div class="service-modal-section">
+                    <div class="service-modal-label">نوع الخدمة الافتراضي</div>
+                    <div class="service-type-picker">
+                        <button class="service-type-card active" type="button" data-service-type-card="shared">
+                            <span class="service-type-icon">👥</span>
+                            <strong>مشترك</strong>
+                            <small>حساب واحد لعدة مستخدمين</small>
+                        </button>
+                        <button class="service-type-card" type="button" data-service-type-card="private">
+                            <span class="service-type-icon">👤</span>
+                            <strong>خاص</strong>
+                            <small>حساب مستقل لكل مشترك</small>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="service-modal-section">
+                    <div class="service-modal-row">
+                        <label class="service-modal-label" for="serviceCurrency">العملة</label>
+                        <select id="serviceCurrency" class="service-currency-select"></select>
+                    </div>
+                </div>
+
+                <div class="service-modal-section">
+                    <div class="service-modal-row service-modal-heading">
+                        <div>
+                            <h4 class="service-pricing-title">تسعير الخدمة حسب الفترات</h4>
+                            <p class="service-pricing-hint">اختر الفترة التي تريد اعتمادها الآن، ويمكنك تعبئة بقية الأسعار لاحقًا.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-pricing-list">
+                        <button class="service-pricing-row active" type="button" data-duration-row="1">
+                            <span class="service-pricing-period">شهر</span>
+                            <div class="service-pricing-inputs">
+                                <label>
+                                    <span>سعر الشراء</span>
+                                    <input type="number" min="0" step="0.01" data-price-kind="cost" data-duration-value="1" value="0">
+                                </label>
+                                <label>
+                                    <span>سعر البيع</span>
+                                    <input type="number" min="0" step="0.01" data-price-kind="sell" data-duration-value="1" value="0">
+                                </label>
+                            </div>
+                        </button>
+
+                        <button class="service-pricing-row" type="button" data-duration-row="2">
+                            <span class="service-pricing-period">شهرين</span>
+                            <div class="service-pricing-inputs">
+                                <label>
+                                    <span>سعر الشراء</span>
+                                    <input type="number" min="0" step="0.01" data-price-kind="cost" data-duration-value="2" value="0">
+                                </label>
+                                <label>
+                                    <span>سعر البيع</span>
+                                    <input type="number" min="0" step="0.01" data-price-kind="sell" data-duration-value="2" value="0">
+                                </label>
+                            </div>
+                        </button>
+
+                        <button class="service-pricing-row" type="button" data-duration-row="3">
+                            <span class="service-pricing-period">3 أشهر</span>
+                            <div class="service-pricing-inputs">
+                                <label>
+                                    <span>سعر الشراء</span>
+                                    <input type="number" min="0" step="0.01" data-price-kind="cost" data-duration-value="3" value="0">
+                                </label>
+                                <label>
+                                    <span>سعر البيع</span>
+                                    <input type="number" min="0" step="0.01" data-price-kind="sell" data-duration-value="3" value="0">
+                                </label>
+                            </div>
+                        </button>
+
+                        <button class="service-pricing-row" type="button" data-duration-row="6">
+                            <span class="service-pricing-period">6 أشهر</span>
+                            <div class="service-pricing-inputs">
+                                <label>
+                                    <span>سعر الشراء</span>
+                                    <input type="number" min="0" step="0.01" data-price-kind="cost" data-duration-value="6" value="0">
+                                </label>
+                                <label>
+                                    <span>سعر البيع</span>
+                                    <input type="number" min="0" step="0.01" data-price-kind="sell" data-duration-value="6" value="0">
+                                </label>
+                            </div>
+                        </button>
+
+                        <button class="service-pricing-row" type="button" data-duration-row="12">
+                            <span class="service-pricing-period">سنة</span>
+                            <div class="service-pricing-inputs">
+                                <label>
+                                    <span>سعر الشراء</span>
+                                    <input type="number" min="0" step="0.01" data-price-kind="cost" data-duration-value="12" value="0">
+                                </label>
+                                <label>
+                                    <span>سعر البيع</span>
+                                    <input type="number" min="0" step="0.01" data-price-kind="sell" data-duration-value="12" value="0">
+                                </label>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="service-hidden-fields">
+                    <select id="serviceCategory">
+                        <option value="private">خاص</option>
+                        <option value="shared">مشترك</option>
+                    </select>
+                    <select id="serviceDuration">
+                        <option value="1">شهر</option>
+                        <option value="2">شهرين</option>
+                        <option value="3">3 أشهر</option>
+                        <option value="6">6 أشهر</option>
+                        <option value="12">سنة</option>
+                    </select>
+                    <select id="servicePricingMode">
+                        <option value="sequential">تسلسلي</option>
+                        <option value="dated">بتاريخ محدد</option>
+                    </select>
+                    <input type="number" id="servicePrice" min="0" step="0.01" value="0">
+                    <div id="serviceCustomDateGroup" style="display: none;">
+                        <input type="date" id="serviceEndDate">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" type="button" data-close-modal="serviceModal">إلغاء</button>
+                <button class="btn-primary" type="button" id="submitServiceBtn">حفظ الخدمة</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="sharedUsersModal">
+        <div class="modal-overlay" data-close-modal="sharedUsersModal"></div>
+        <div class="modal-content modal-customer">
+            <div class="modal-header">
+                <div>
+                    <h3 id="sharedUsersModalTitle">إدارة المستخدمين</h3>
+                    <p class="section-subtitle" id="sharedUsersModalEmail">name@example.com</p>
+                </div>
+                <button class="modal-close" type="button" data-close-modal="sharedUsersModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="service-members-list" id="sharedUsersList"></div>
+
+                <div class="form-group">
+                    <label for="sharedCustomerSelect">إضافة عميل إلى هذا الإيميل</label>
+                    <select id="sharedCustomerSelect">
+                        <option value="">اختر العميل</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer modal-footer-stretch">
+                <button class="btn-primary" type="button" id="addSharedUserBtn">إضافة مستخدم</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="subscriptionModal">
+        <div class="modal-overlay" data-close-modal="subscriptionModal"></div>
+        <div class="modal-content modal-service">
+            <div class="modal-header">
+                <h3 id="subscriptionModalTitle">إضافة اشتراك جديد</h3>
+                <button class="modal-close" type="button" data-close-modal="subscriptionModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="subscriptionCustomerSearch">العميل</label>
+                    <input type="search" id="subscriptionCustomerSearch" placeholder="ابحث بالاسم أو رقم الهاتف أو الكود...">
+                </div>
+
+                <div class="form-group">
+                    <select id="subscriptionCustomerSelect">
+                        <option value="">اختر العميل</option>
+                    </select>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="subscriptionDuration">مدة الاشتراك</label>
+                        <select id="subscriptionDuration">
+                            <option value="1">شهر</option>
+                            <option value="2">شهرين</option>
+                            <option value="3">3 أشهر</option>
+                            <option value="6">6 أشهر</option>
+                            <option value="12">سنة</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="subscriptionCurrency">العملة</label>
+                        <select id="subscriptionCurrency"></select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subscriptionType">نوع الاشتراك</label>
+                    <select id="subscriptionType">
+                        <option value="private">خاص</option>
+                        <option value="shared">مشترك</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="subscriptionEmailGroup">
+                    <label for="subscriptionPrivateEmail">إيميل العميل للاشتراك الخاص</label>
+                    <input type="email" id="subscriptionPrivateEmail" placeholder="customer@example.com">
+                </div>
+
+                <div class="subscription-services-header">
+                    <label>الخدمات</label>
+                    <button class="btn-link" type="button" id="addSubscriptionServiceBtn">إضافة خدمة</button>
+                </div>
+                <div id="subscriptionServiceRows"></div>
+
+                <div class="form-group">
+                    <label for="subscriptionDiscount">الخصم</label>
+                    <input type="number" id="subscriptionDiscount" min="0" step="0.01" value="0">
+                </div>
+
+                <div class="subscription-choice-group">
+                    <label>حالة الدفع</label>
+                    <div class="subscription-choice-row">
+                        <button class="subscription-choice-btn active" type="button" data-payment-status="paid">مدفوع كامل</button>
+                        <button class="subscription-choice-btn" type="button" data-payment-status="partial">دفع جزئي</button>
+                        <button class="subscription-choice-btn" type="button" data-payment-status="due">أجل</button>
+                    </div>
+                </div>
+
+                <div class="subscription-choice-group">
+                    <label>طريقة الدفع</label>
+                    <div class="subscription-method-grid" id="subscriptionMethodGroup">
+                        <button class="subscription-method-btn" type="button" data-payment-method="جيب">جيب</button>
+                        <button class="subscription-method-btn active" type="button" data-payment-method="ون كاش">ون كاش</button>
+                        <button class="subscription-method-btn" type="button" data-payment-method="كاش">كاش</button>
+                        <button class="subscription-method-btn" type="button" data-payment-method="جوال">جوال</button>
+                        <button class="subscription-method-btn" type="button" data-payment-method="فلاوسك">فلاوسك</button>
+                        <button class="subscription-method-btn" type="button" data-payment-method="إيزي">إيزي</button>
+                        <button class="subscription-method-btn" type="button" data-payment-method="محفظتي">محفظتي</button>
+                        <button class="subscription-method-btn" type="button" data-payment-method="المتكاملة">المتكاملة</button>
+                        <button class="subscription-method-btn" type="button" data-payment-method="شأن القطبي">شأن القطبي</button>
+                    </div>
+                </div>
+
+                <div class="subscription-choice-group" id="subscriptionDueSettings" style="display: none;">
+                    <label>مهلة السداد</label>
+                    <div class="subscription-due-grid">
+                        <button class="subscription-method-btn active" type="button" data-due-option="1">يوم</button>
+                        <button class="subscription-method-btn" type="button" data-due-option="2">يومين</button>
+                        <button class="subscription-method-btn" type="button" data-due-option="3">3 أيام</button>
+                        <button class="subscription-method-btn" type="button" data-due-option="7">أسبوع</button>
+                        <button class="subscription-method-btn" type="button" data-due-option="30">شهر</button>
+                        <button class="subscription-method-btn" type="button" data-due-option="custom">تاريخ محدد</button>
+                    </div>
+                    <div class="form-group" id="subscriptionCustomDueDateGroup" style="display: none; margin-top: 16px;">
+                        <label for="subscriptionCustomDueDate">تاريخ السداد المحدد</label>
+                        <input type="date" id="subscriptionCustomDueDate">
+                    </div>
+                </div>
+
+                <div class="subscription-summary-box">
+                    <div><span>إجمالي السعر:</span><strong id="subscriptionTotalPrice">0 ر.ي</strong></div>
+                    <div><span>السعر بعد الخصم:</span><strong id="subscriptionFinalPrice">0 ر.ي</strong></div>
+                    <div><span>إجمالي التكلفة:</span><strong id="subscriptionTotalCost">0 ر.ي</strong></div>
+                    <div><span>الربح المتوقع:</span><strong id="subscriptionExpectedProfit" class="success">0 ر.ي</strong></div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="subscriptionStartDate">تاريخ البداية</label>
+                        <input type="date" id="subscriptionStartDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="subscriptionEndDate">تاريخ الانتهاء</label>
+                        <input type="date" id="subscriptionEndDate">
+                    </div>
+                </div>
+
+                <label class="subscription-checkbox">
+                    <input type="checkbox" id="subscriptionAutoRenew" checked>
+                    <span>تفعيل التجديد التلقائي</span>
+                </label>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" type="button" data-close-modal="subscriptionModal">إلغاء</button>
+                <button class="btn-primary" type="button" id="submitSubscriptionBtn">إضافة الاشتراك</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="paymentsModal">
+        <div class="modal-overlay" data-close-modal="paymentsModal"></div>
+        <div class="modal-content modal-customer">
+            <div class="modal-header">
+                <h3>تسجيل دفعة جديدة</h3>
+                <button class="modal-close" type="button" data-close-modal="paymentsModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="subscription-choice-group">
+                    <label>نوع الدفعة</label>
+                    <div class="payments-entry-type-grid">
+                        <button class="subscription-choice-btn active" type="button" data-payment-entry-type="invoice">سداد فاتورة</button>
+                        <button class="subscription-choice-btn" type="button" data-payment-entry-type="credit">شحن رصيد عميل</button>
+                        <button class="subscription-choice-btn" type="button" data-payment-entry-type="debt">إضافة مديونية</button>
+                    </div>
+                </div>
+
+                <div id="paymentsInvoiceFields">
+                    <div class="form-group">
+                        <label for="paymentsInvoiceSelect">الفاتورة</label>
+                        <select id="paymentsInvoiceSelect"></select>
+                    </div>
+                </div>
+
+                <div id="paymentsCustomerFields" style="display: none;">
+                    <div class="form-group">
+                        <label for="paymentsModalCustomer">العميل</label>
+                        <select id="paymentsModalCustomer"></select>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group" id="paymentsMethodField">
+                        <label for="paymentsModalMethod">طريقة الدفع</label>
+                        <select id="paymentsModalMethod"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="paymentsModalAmount">المبلغ</label>
+                        <input type="number" id="paymentsModalAmount" min="0.01" step="0.01" placeholder="0.00">
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="paymentsModalDate">تاريخ الدفع</label>
+                        <input type="date" id="paymentsModalDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="paymentsModalCurrency">العملة</label>
+                        <select id="paymentsModalCurrency"></select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="paymentsModalReference">رقم المرجع / العملية</label>
+                    <input type="text" id="paymentsModalReference" placeholder="مثال: TXN-123456">
+                </div>
+
+                <div class="form-group">
+                    <label for="paymentsModalNote">ملاحظة</label>
+                    <input type="text" id="paymentsModalNote" placeholder="بيان إضافي اختياري">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" type="button" data-close-modal="paymentsModal">إلغاء</button>
+                <button class="btn-primary" type="button" id="paymentsModalSubmitBtn">تسجيل الدفعة</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
